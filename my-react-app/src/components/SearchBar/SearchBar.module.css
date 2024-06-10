@@ -1,0 +1,9 @@
+.headerSearch {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.inputSearch {
+    width: 320px;
+    height: 40px;
+}
