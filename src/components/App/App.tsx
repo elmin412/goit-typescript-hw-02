@@ -8,7 +8,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-import { ImageType } from './App.types';
+import { ImageType } from '../../types';
 
 
 
@@ -52,10 +52,7 @@ function App() {
   async function getGallery<T>(): Promise<void> {
     try {
         setLoading(true);
-        const data = await fetchGallery(
-          query, 
-          page,
-        );
+        const data = await fetchGallery(query, page);
         setImages((prevImages) => {
           return [...prevImages, ...data];
         }) }

@@ -4,7 +4,7 @@ import { ImageType } from "../../types"
 
 interface ImageCardProps {
     item: ImageType;
-    onClick: (id: number) => void;
+    onClick: (bigImg: string, alt: string) => void;
 }
 
  const ImageCard = ({item, onClick}: ImageCardProps) => {
@@ -13,9 +13,11 @@ interface ImageCardProps {
         <>
         <div>
             <img
-                onClick={() => onClick(item.id)}
+                 onClick={() => onClick(item.urls.regular, item.alt_description)}
                 src={item.urls.small} 
                 alt={item.alt_description}
+                width="250"
+                height="200"
             />
 		</div>
         </>

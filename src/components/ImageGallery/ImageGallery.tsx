@@ -4,7 +4,7 @@ import { ImageType } from "../../types";
 
 interface ImageGalleryProps {
   items: ImageType[];
-  openModal: (id: number) => void;
+  openModal: (bigImg: string, alt: string) => void;
 }
 
 const ImageGallery = ({ items, openModal }: ImageGalleryProps) => {
@@ -12,7 +12,7 @@ const ImageGallery = ({ items, openModal }: ImageGalleryProps) => {
     <ul className={style.listBlock}>
       {items.map((item) => (
         <li key={item.id}>
-          <ImageCard item={item} onClick={() => openModal(item.id)} />
+          <ImageCard onClick={openModal} item={item}  />
         </li>
       ))}
     </ul>
