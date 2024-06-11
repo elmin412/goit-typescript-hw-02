@@ -13,7 +13,7 @@ import { ImageType } from './App.types';
 
 
 function App() {
-  const [images, setImages] = useState<ImageType>([]);
+  const [images, setImages] = useState<ImageType[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false)
   const [page, setPage] = useState<number>(1)
@@ -34,10 +34,10 @@ function App() {
     setModalIsOpen(false)
   }
 
-  const handleSearch = async (newQuery: string): void => {
-    setQuery(newQuery)
-    setPage(1)
-    setImages([])
+  const handleSearch = (newQuery: string): void => {
+    setQuery(newQuery);
+    setPage(1);
+    setImages([]);
   };
   
   const handleMoreBtn = (): void => {
@@ -52,7 +52,7 @@ function App() {
   async function getGallery<T>(): Promise<void> {
     try {
         setLoading(true);
-        const data: ImageType = await fetchGallery(
+        const data = await fetchGallery(
           query, 
           page,
         );
